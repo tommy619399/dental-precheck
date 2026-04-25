@@ -1,32 +1,36 @@
-# Dental PreCheck (Tauri Desktop)
+# 牙科修复术前心理与咬合知觉评估系统
 
-Desktop app for pre-op psychology and occlusal perception assessment.
+Dental PreCheck 是一款供个人或科室内部使用的桌面软件，用于牙科修复术前心理状态、牙科焦虑反应、咬合知觉敏感性、既往修复体验和治疗期望评估。
 
-## Stack
+## 技术栈
 
 - Frontend: React + TypeScript + Vite
-- Desktop shell: Tauri 2 (Windows/macOS ready)
-- Database: SQLite (rusqlite in Rust backend)
+- Desktop shell: Tauri 2
+- Backend: Rust + SQLite
 - Charts: ECharts
 
-## Commands
+## 开发运行
 
 ```bash
 npm install
-npm run dev          # tauri dev
-npm run build        # frontend build only
-npm run tauri:build  # tauri release executable (--no-bundle)
+npm run dev
 ```
 
-## Output
+## 构建
 
-After `npm run tauri:build`, the executable is generated at:
+```bash
+npm run build
+npm run tauri:build
+```
 
-`src-tauri/target/release/dental-precheck-tauri.exe`
+构建后的 Windows 可执行文件位于：
 
-## Notes
+```text
+src-tauri/target/release/dental-precheck-tauri.exe
+```
 
-- The app migrates legacy Electron database automatically on first run:
-  - from `%APPDATA%\\dental-precheck-desktop\\data\\dental_precheck.sqlite`
-  - to Tauri app data directory.
-- Admin default password: `Dental@2026`
+## 说明
+
+- 本仓库只保留源码、配置、图标和必要锁文件。
+- 未上传 `node_modules/`、`dist/`、`release/`、`src-tauri/target/` 等依赖或构建产物。
+- 默认管理员密码为 `Dental@2026`，正式使用前建议改造成可配置账号或密码。
